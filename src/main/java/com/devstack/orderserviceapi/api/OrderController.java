@@ -35,10 +35,16 @@ public class OrderController {
     }
 
     @GetMapping("/get-by-customer-id/{id}")
-    public ResponseOrderDto findOrdersByCustomer(
+    public ResponseEntity<StandardResponseEntity> findOrdersByCustomer(
             @PathVariable Long id
     ){
-        return orderService.loadOrdersByCustomer(id);
+
+        return new ResponseEntity<>(
+                new StandardResponseEntity(201,"Order saved!",orderService.loadOrdersByCustomer(id)),
+                HttpStatus.CREATED
+        );
+
+
     }
 
 }

@@ -29,13 +29,16 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public ResponseOrderDto loadOrdersByCustomer(Long id) {
-        List<Order> orders = orderRepo.getOrdersByCustomer(id);
-        List<OrderDto> dtos = new ArrayList<>();
-        for (Order o:orders
-        ) {
-            dtos.add(new OrderDto(o.getOrderId(),o.getCustomerId(),o.getProductId(),o.getCost()));
+    public List<OrderDto> loadOrdersByCustomer(Long id) {
+        List<Order> orders =  orderRepo.getOrdersByCustomer(id);
+        List<OrderDto>orderDtos=  new ArrayList<>();
+        for (Order c:orders
+             ) {
+            orderDtos.add(new OrderDto(c.getOrderId(),c.getCustomerId(),c.getProductId(),c.getCost()));
+
         }
-        return new ResponseOrderDto(dtos);
+        return orderDtos;
     }
+
+
 }
