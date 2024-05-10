@@ -35,7 +35,7 @@ public class OrderController {
     }
 
     @GetMapping("/get-by-customer-id/{id}")
-    public List<OrderDto> findOrdersByCustomer(
+    public ResponseOrderDto findOrdersByCustomer(
             @PathVariable Long id
     ){
 

@@ -29,7 +29,7 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public List<OrderDto> loadOrdersByCustomer(Long id) {
+    public ResponseOrderDto loadOrdersByCustomer(Long id) {
         List<Order> orders =  orderRepo.getOrdersByCustomer(id);
         List<OrderDto>orderDtos=  new ArrayList<>();
         for (Order c:orders
@@ -37,7 +37,7 @@ public class OrderServiceImpl implements OrderService {
             orderDtos.add(new OrderDto(c.getOrderId(),c.getCustomerId(),c.getProductId(),c.getCost()));
 
         }
-        return orderDtos;
+        return new ResponseOrderDto(orderDtos);
     }
 
 

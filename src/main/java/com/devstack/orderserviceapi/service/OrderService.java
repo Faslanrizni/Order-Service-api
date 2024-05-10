@@ -7,5 +7,5 @@ import java.util.List;
 
 public interface OrderService {
     public void makeOrder(OrderDto dto);
-    public List<OrderDto> loadOrdersByCustomer(Long id);
+    public ResponseOrderDto loadOrdersByCustomer(Long id);
 }
