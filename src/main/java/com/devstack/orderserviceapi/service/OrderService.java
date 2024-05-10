@@ -1,11 +1,11 @@
 package com.devstack.orderserviceapi.service;
 
 import com.devstack.orderserviceapi.dto.OrderDto;
-import jakarta.transaction.Transactional;
-import org.springframework.stereotype.Service;
+import com.devstack.orderserviceapi.dto.ResponseOrderDto;
 
-@Service
-@Transactional
+import java.util.List;
+
 public interface OrderService {
     public void makeOrder(OrderDto dto);
+    public ResponseOrderDto loadOrdersByCustomer(Long id);
 }
